@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>MyOwnLLM — A local API surface for local AI</title>
-<meta name="description" content="Self-host an OpenAI-compatible API for local LLMs. macOS, Linux, Windows, Raspberry Pi. Set it, forget it." />
+<title>MyOwnLLM — Your own AI. On your own devices. Forever.</title>
+<meta name="description" content="A free, private AI that lives on your Mac, PC, or Raspberry Pi. No subscription. No account. No cloud. Set it once and forget about it." />
 <meta name="theme-color" content="#0b0d10" />
 
-<meta property="og:title" content="MyOwnLLM" />
-<meta property="og:description" content="A local API surface for local AI. Self-host the JSON, set it, forget it." />
+<meta property="og:title" content="MyOwnLLM — Your own AI. Forever." />
+<meta property="og:description" content="A free, private AI that lives on your Mac, PC, or Raspberry Pi. No subscription. No account. No cloud." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://myownllm.net" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="MyOwnLLM" />
-<meta name="twitter:description" content="A local API surface for local AI. Self-host the JSON, set it, forget it." />
+<meta name="twitter:description" content="A free, private AI that lives on your devices. Set it once and forget about it." />
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="/styles.css" />
@@ -23,16 +23,19 @@
 <header class="nav" role="banner">
   <div class="container nav-row">
     <a class="brand" href="/" aria-label="MyOwnLLM home">
-      <span class="brand-mark" aria-hidden="true">▍</span>
+      <svg class="brand-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M8 10l2 2-2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 14h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
       <span class="brand-name">MyOwnLLM</span>
     </a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#features">Features</a>
-      <a href="#install">Install</a>
-      <a href="#api">API</a>
-      <a href="#clients">Clients</a>
-      <a href="https://github.com/mrjeeves/MyOwnLLM/blob/main/DOCS.md">Docs</a>
-      <a href="https://github.com/mrjeeves/MyOwnLLM" class="nav-cta">GitHub →</a>
+      <a href="/download.html">Download</a>
+      <a href="#what-it-does">What it does</a>
+      <a href="#faq">FAQ</a>
+      <a href="#developers">For developers</a>
+      <a href="https://github.com/mrjeeves/MyOwnLLM" class="nav-cta">GitHub</a>
     </nav>
   </div>
 </header>
@@ -41,284 +44,256 @@
 
 <section class="hero">
   <div class="container">
-    <p class="eyebrow">Local · Open source · MIT</p>
-    <h1>A local API surface<br/>for local AI.</h1>
+    <p class="eyebrow">Free · Open source · Yours forever</p>
+    <h1>Your own AI.<br/>On your own devices.<br/><span class="accent">Forever.</span></h1>
     <p class="lede">
-      Self-host the JSON, set it, forget it. MyOwnLLM gives you an
-      <em>OpenAI-compatible</em> server, a desktop GUI, and a static
-      manifest format that picks the right model for whatever hardware
-      it lands on — from a 2&nbsp;GB Pi&nbsp;4 to a 4090.
+      MyOwnLLM is a friendly, private AI that lives on your computer.
+      Install it once and it runs on your Mac, your PC, your Raspberry Pi,
+      even the laptop in the cupboard — picking the right model for each
+      machine and keeping itself up to date. No subscription. No account.
+      No cloud.
     </p>
-
-    <div class="install" id="install-tabs" role="tablist" aria-label="Install command">
-      <div class="install-tabs">
-        <button class="install-tab is-active" role="tab" aria-selected="true" data-target="install-mac">macOS / Linux</button>
-        <button class="install-tab" role="tab" aria-selected="false" data-target="install-win">Windows</button>
-        <button class="install-tab" role="tab" aria-selected="false" data-target="install-src">From source</button>
-      </div>
-
-      <div class="install-panel is-active" id="install-mac" role="tabpanel">
-        <pre><code><span class="prompt">$</span> curl -fsSL https://raw.githubusercontent.com/mrjeeves/MyOwnLLM/main/scripts/install.sh | sh</code></pre>
-      </div>
-      <div class="install-panel" id="install-win" role="tabpanel" hidden>
-        <pre><code><span class="prompt">PS&gt;</span> irm https://raw.githubusercontent.com/mrjeeves/MyOwnLLM/main/scripts/install.ps1 | iex</code></pre>
-      </div>
-      <div class="install-panel" id="install-src" role="tabpanel" hidden>
-        <pre><code><span class="prompt">$</span> git clone https://github.com/mrjeeves/MyOwnLLM &amp;&amp; cd MyOwnLLM
-<span class="prompt">$</span> just setup &amp;&amp; just build</code></pre>
-      </div>
+    <div class="hero-cta">
+      <a class="btn btn-primary btn-lg" href="/download.html" id="hero-download">
+        <span class="btn-arrow" aria-hidden="true">↓</span>
+        Download MyOwnLLM
+      </a>
+      <a class="btn btn-ghost btn-lg" href="#what-it-does">What can it do?</a>
     </div>
-
-    <p class="install-hint">
-      Run <code>myownllm</code> for the GUI. <code>myownllm serve</code> for the headless API server. <code>myownllm run</code> for a terminal chat.
+    <p class="hero-meta" id="hero-meta">
+      Free and open source · Works on Mac, Windows, Linux &amp; Raspberry Pi
     </p>
-
-    <div class="badges">
-      <span class="badge">macOS 12+</span>
-      <span class="badge">Linux x86_64 / aarch64</span>
-      <span class="badge">Windows 10+</span>
-      <span class="badge">Raspberry Pi 4 / 5</span>
-    </div>
   </div>
 </section>
 
-<section class="strip">
-  <div class="container strip-grid">
-    <div>
-      <div class="strip-k">127.0.0.1:1473</div>
-      <div class="strip-v">OpenAI-compatible</div>
-    </div>
-    <div>
-      <div class="strip-k">:11434</div>
-      <div class="strip-v">Ollama wire format</div>
-    </div>
-    <div>
-      <div class="strip-k">/v1/messages</div>
-      <div class="strip-v">Anthropic wire format</div>
-    </div>
-    <div>
-      <div class="strip-k">~7.6 tok/s</div>
-      <div class="strip-v">Gemma 4 e4b on a Pi 5</div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="features">
+<section class="why">
   <div class="container">
-    <h2>What you actually get</h2>
-
-    <div class="grid">
-      <article class="card">
-        <h3>One stable URL, swappable model</h3>
-        <p>
-          Point Cursor, Continue, Aider, Cline, Zed, Open WebUI, LibreChat,
-          opencode — anything OpenAI-shaped — at
-          <code>http://127.0.0.1:1473/v1</code> and forget about it. The
-          virtual model IDs <code>myownllm-text</code>,
-          <code>myownllm-code</code>, <code>myownllm-vision</code>,
-          <code>myownllm-transcribe</code> resolve at request time to the
-          best tag your machine can run.
-        </p>
+    <div class="why-grid">
+      <article class="why-card">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M12 2l9 4v6c0 5-3.5 8.5-9 10-5.5-1.5-9-5-9-10V6l9-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Yours forever</h3>
+        <p>MIT-licensed, open source, no company in the loop. Nothing to cancel, nothing to expire, no terms that can change overnight.</p>
       </article>
-
-      <article class="card">
-        <h3>Manifest-driven, not click-driven</h3>
-        <p>
-          A static JSON file decides which model runs where. Host your
-          own, point a team at it, or compose merged catalogs with JSON
-          <code>import</code>s. No coordination server, no auth flow,
-          no dashboard — just a URL.
-        </p>
+      <article class="why-card">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><rect x="4" y="10" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 10V7a4 4 0 1 1 8 0v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Private by default</h3>
+        <p>Your chats, your transcripts, your files — they stay on your machine. There's no server to leak, no provider to spy on, no API key to renew.</p>
       </article>
-
-      <article class="card">
-        <h3>Hardware-tier resolution</h3>
-        <p>
-          The same manifest hands a 2&nbsp;GB Pi a 1B model and a 4090
-          a 70B model. The hardware detector reads
-          <code>/proc/device-tree/model</code>,
-          <code>nvidia-smi</code>, <code>rocm-smi</code>,
-          <code>system_profiler</code> — and walks tiers top to bottom.
-        </p>
+      <article class="why-card">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M5 12a7 7 0 0 1 14 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M2 9l3 3-3 3M22 9l-3 3 3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 16v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Works offline</h3>
+        <p>Plane, train, cabin, bad Wi-Fi. After the first download, the whole thing runs without internet. If your machine turns on, your AI works.</p>
       </article>
-
-      <article class="card">
-        <h3>Desktop GUI with live transcription</h3>
-        <p>
-          Tauri + Svelte 5. Two singleton slots — one chat model, one
-          transcription. Conversation sidebar with folders, drag-to-organise,
-          rename in place. Whisper.cpp runs offline; the mic-pause keeps
-          draining the backlog. <strong>Talking Points</strong>
-          continuously summarises the transcript into a bullet list.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>Self-updating, crash-resilient</h3>
-        <p>
-          Checks GitHub on launch, stages quietly, applies on next start.
-          Transcription chunks land on disk before whisper sees them, so a
-          force-quit can be drained on the next launch. No network, no
-          problem — the last good manifest is cached and kept.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3>Scriptable end to end</h3>
-        <p>
-          Every CLI subcommand returns parseable text or <code>--json</code>.
-          <code>myownllm status</code> shows provider, hardware tier,
-          ollama state, update status — one screen. SSE progress on
-          preload. Pipe it, automate it, alarm on it.
-        </p>
+      <article class="why-card">
+        <div class="why-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Set it &amp; forget it</h3>
+        <p>It picks the right model for each device, updates itself in the background, and survives crashes, force-quits, and bad Wi-Fi without complaint.</p>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section section-alt" id="api">
+<section class="section section-alt" id="what-it-does">
   <div class="container">
-    <h2>An API your clients already speak</h2>
+    <h2>What you can actually do with it</h2>
     <p class="section-lede">
-      MyOwnLLM serves three wire formats from the same binary. Point any
-      client at the matching port — no shim, no adapter, no proxy.
+      Everyday things you'd otherwise pay a cloud service for — except
+      your conversation never leaves the room.
     </p>
 
-    <div class="api-grid">
-      <div class="api-card">
-        <header>
-          <span class="api-tag">OpenAI</span>
-          <code class="api-url">http://127.0.0.1:1473/v1</code>
-        </header>
-        <ul>
-          <li><code>POST /v1/chat/completions</code> — streaming, tools, vision, JSON mode</li>
-          <li><code>POST /v1/completions</code></li>
-          <li><code>POST /v1/embeddings</code></li>
-          <li><code>GET&nbsp;&nbsp;/v1/models</code></li>
-        </ul>
-      </div>
+    <div class="feature-grid">
+      <article class="feature">
+        <h3>Chat with your own AI</h3>
+        <p>Like ChatGPT, on your own computer. Ask questions, draft emails, summarise pages, brainstorm ideas. The app remembers your conversations and organises them in folders.</p>
+      </article>
+      <article class="feature">
+        <h3>Transcribe meetings live</h3>
+        <p>Open the app, hit record. It listens to the mic and writes everything down in real time — entirely offline. Pause and resume freely; nothing gets lost if you do.</p>
+      </article>
+      <article class="feature">
+        <h3>Turn talks into bullet points</h3>
+        <p>Talking Points keeps summarising a live transcript into a tidy bullet list while the meeting is still happening. Walk away with notes that already make sense.</p>
+      </article>
+      <article class="feature">
+        <h3>Show it pictures</h3>
+        <p>Drag in a photo or a screenshot. Ask it to read the receipt, describe the chart, label the parts, translate the sign. No upload, no service, no waiting.</p>
+      </article>
+      <article class="feature">
+        <h3>Help with code &amp; writing</h3>
+        <p>Stuck on a tricky paragraph or a regex? It can read your draft, suggest fixes, and explain why — without sending your work to anyone else's server.</p>
+      </article>
+      <article class="feature">
+        <h3>Run it on every device</h3>
+        <p>The same app on your Mac, your work laptop, the kids' PC, the Raspberry Pi in the cupboard. Open the GUI from your phone over your home Wi-Fi.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
-      <div class="api-card">
-        <header>
-          <span class="api-tag">Ollama</span>
-          <code class="api-url">http://127.0.0.1:11434</code>
-        </header>
-        <ul>
-          <li><code>POST /api/chat</code></li>
-          <li><code>POST /api/generate</code></li>
-          <li><code>GET&nbsp;&nbsp;/api/tags</code></li>
-        </ul>
-      </div>
+<section class="section" id="how">
+  <div class="container">
+    <h2>How it works</h2>
+    <p class="section-lede">Three steps. No accounts, no terminal commands required.</p>
 
-      <div class="api-card">
-        <header>
-          <span class="api-tag">Anthropic</span>
-          <code class="api-url">/v1/messages</code>
-        </header>
-        <ul>
-          <li><code>POST /v1/messages</code> — SSE deltas, content blocks</li>
-          <li>Works with anything that speaks Claude's wire format</li>
-        </ul>
-      </div>
+    <ol class="steps">
+      <li>
+        <div class="step-num">1</div>
+        <h3>Download &amp; open</h3>
+        <p>One click on the download button below. Run the installer. Open MyOwnLLM like any other app on your computer.</p>
+      </li>
+      <li>
+        <div class="step-num">2</div>
+        <h3>It picks the right brain for your machine</h3>
+        <p>A small, nimble model on a Pi or a basic laptop. A bigger, smarter one on a workstation. You don't have to choose — it figures it out and downloads it once.</p>
+      </li>
+      <li>
+        <div class="step-num">3</div>
+        <h3>Chat. That's it.</h3>
+        <p>Type a message. Drop in a photo. Hit record on a meeting. From here on, MyOwnLLM updates itself in the background — you never have to come back to "manage" it.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section-alt" id="download-cta">
+  <div class="container">
+    <h2>Get it on every device</h2>
+    <p class="section-lede">One free app for every machine you own. The big buttons go to the official installer for your platform.</p>
+
+    <div class="dl-grid"
+         data-repo="mrjeeves/MyOwnLLM"
+         data-release-url="https://github.com/mrjeeves/MyOwnLLM/releases/latest">
+      <a class="dl-card" data-asset-pattern="MyOwnLLM_[0-9.]+_(aarch64|arm64)\.dmg$" href="https://github.com/mrjeeves/MyOwnLLM/releases/latest">
+        <div class="dl-icon mac" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor"><path d="M16.4 12.2c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.7-1.9-1.6-.2-3 .9-3.8.9s-2-.9-3.3-.9c-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.3.9 1.3 1.9 2.7 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.3 3.1-2.6.9-1.4 1.3-2.8 1.4-2.9-.1-.1-2.7-1-2.7-4.3zM14 4.7c.7-.8 1.2-2 1.1-3.1-1 0-2.3.7-3 1.5-.7.7-1.3 1.9-1.1 3 1.1.1 2.3-.6 3-1.4z"/></svg>
+        </div>
+        <h3>Mac</h3>
+        <p class="dl-sub">Apple Silicon (M-series)</p>
+        <span class="dl-cta">Download .dmg →</span>
+      </a>
+
+      <a class="dl-card" data-asset-pattern="MyOwnLLM_[0-9.]+_x64-setup\.exe$" href="https://github.com/mrjeeves/MyOwnLLM/releases/latest">
+        <div class="dl-icon win" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="36" height="36" fill="currentColor"><path d="M3 5.5l8-1.1v8.1H3V5.5zM3 14.5h8v7.1l-8-1.1v-6zM12 4.2l9-1.2v9.5h-9V4.2zM12 13.5h9v9.3l-9-1.2v-8.1z"/></svg>
+        </div>
+        <h3>Windows</h3>
+        <p class="dl-sub">Windows 10 or newer · 64-bit</p>
+        <span class="dl-cta">Download installer →</span>
+      </a>
+
+      <a class="dl-card" data-asset-pattern="MyOwnLLM_[0-9.]+_amd64\.deb$" href="https://github.com/mrjeeves/MyOwnLLM/releases/latest">
+        <div class="dl-icon linux" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="9" rx="4" ry="5"/><circle cx="10" cy="8" r="0.8" fill="currentColor" stroke="none"/><circle cx="14" cy="8" r="0.8" fill="currentColor" stroke="none"/><path d="M6 19c0-3 2-4 6-4s6 1 6 4-2 2-6 2-6 1-6-2z" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Linux</h3>
+        <p class="dl-sub">Ubuntu / Debian · 64-bit</p>
+        <span class="dl-cta">Download .deb →</span>
+      </a>
+
+      <a class="dl-card" data-asset-pattern="MyOwnLLM_[0-9.]+_arm64\.deb$" href="https://github.com/mrjeeves/MyOwnLLM/releases/latest">
+        <div class="dl-icon pi" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 4c1 1 1.5 2 1.5 3M15 4c-1 1-1.5 2-1.5 3" stroke-linecap="round"/><circle cx="12" cy="14" r="6"/><circle cx="9" cy="13" r="1" fill="currentColor" stroke="none"/><circle cx="13" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="16" r="1" fill="currentColor" stroke="none"/></svg>
+        </div>
+        <h3>Raspberry Pi</h3>
+        <p class="dl-sub">Pi 4 or Pi 5 · 64-bit Raspberry Pi OS</p>
+        <span class="dl-cta">Download .deb →</span>
+      </a>
     </div>
 
-    <div class="code-feature">
-      <p class="code-feature-h">Drop-in <code>curl</code></p>
-<pre><code><span class="c-key">curl</span> http://127.0.0.1:1473/v1/chat/completions \
-  -H <span class="c-str">"Content-Type: application/json"</span> \
+    <p class="dl-all"><a href="/download.html">See all downloads &amp; alternative installers →</a></p>
+  </div>
+</section>
+
+<section class="section faq" id="faq">
+  <div class="container">
+    <h2>Things people ask</h2>
+
+    <details>
+      <summary>Is this really free?</summary>
+      <p>Yes. MyOwnLLM is open source under the MIT licence — that means you can use it forever, even commercially, even offline, even after this project is no longer maintained. There's no premium tier, no account, no telemetry by default.</p>
+    </details>
+
+    <details>
+      <summary>Does it work without internet?</summary>
+      <p>Yes — after the first download. The first time you run it, MyOwnLLM downloads the AI model itself (typically 3–15 GB). After that it runs entirely offline. You only need internet again if you want to update the app or switch to a different model.</p>
+    </details>
+
+    <details>
+      <summary>Do I need a fancy graphics card?</summary>
+      <p>No. MyOwnLLM works on a stock Mac, a regular Windows laptop, even a Raspberry Pi 4 with 2 GB of RAM. It picks a model your machine can actually run. If you do have a GPU it'll happily use it to go faster.</p>
+    </details>
+
+    <details>
+      <summary>Will it slow my computer down?</summary>
+      <p>Only when you're actively chatting — and even then it's bounded by what your computer can comfortably handle, because the model is chosen to fit. Idle, MyOwnLLM uses no meaningful power.</p>
+    </details>
+
+    <details>
+      <summary>How much disk space does it need?</summary>
+      <p>The app itself is small (under 50 MB). The model it downloads on first run is the big bit — typically 3 GB on a Pi or small laptop, up to about 15 GB on a powerful machine. Models you stop using are cleaned up automatically.</p>
+    </details>
+
+    <details>
+      <summary>How private is it, really?</summary>
+      <p>Everything runs on your device. Your conversations and transcripts never leave it. The only thing MyOwnLLM does over the network is check GitHub for updates — and even that you can turn off.</p>
+    </details>
+
+    <details>
+      <summary>Can it do what ChatGPT does?</summary>
+      <p>For everyday things — yes. Drafting emails, summarising articles, answering questions, looking at photos, helping with writing or code. It's not as smart as the very largest cloud models, but it's a lot smarter than nothing, and it's yours. As local models get better, MyOwnLLM updates itself to use them.</p>
+    </details>
+
+    <details>
+      <summary>What about my family's older laptop / the Pi in the cupboard?</summary>
+      <p>That's the point. Install it everywhere — each machine gets a model that fits it. The Pi will run a small, nimble one; the gaming PC will run a big clever one. The app is the same on all of them.</p>
+    </details>
+  </div>
+</section>
+
+<section class="section section-alt" id="developers">
+  <div class="container dev-row">
+    <div>
+      <p class="dev-eyebrow">For developers</p>
+      <h2>OpenAI-compatible. Drop-in. Local.</h2>
+      <p>
+        MyOwnLLM also exposes an OpenAI-compatible HTTP API on
+        <code>127.0.0.1:1473</code> (plus Ollama and Anthropic wire
+        formats), so Cursor, Continue, Aider, Cline, Zed, Open WebUI,
+        LibreChat, opencode, and anything else that speaks those formats
+        works as a drop-in. Manifest-driven model selection, hardware-tier
+        resolution, self-updating binary, fully scriptable CLI.
+      </p>
+      <p>
+        <a class="btn btn-ghost" href="https://github.com/mrjeeves/MyOwnLLM/blob/main/DOCS.md">Read the developer docs →</a>
+        <a class="btn btn-ghost" href="https://github.com/mrjeeves/MyOwnLLM">View on GitHub</a>
+      </p>
+    </div>
+    <pre class="dev-snippet"><code><span class="c-dim"># point any OpenAI client at your machine</span>
+curl http://127.0.0.1:1473/v1/chat/completions \
   -H <span class="c-str">"Authorization: Bearer myownllm"</span> \
   -d <span class="c-str">'{
     "model": "myownllm-text",
-    "messages": [{"role": "user", "content": "hi"}],
-    "stream": true
+    "messages": [{"role":"user","content":"hi"}]
   }'</span></code></pre>
-    </div>
   </div>
 </section>
 
-<section class="section" id="clients">
+<section class="cta">
   <div class="container">
-    <h2>Point any client at it</h2>
-    <p class="section-lede">
-      The universal answer to <em>"how do I point [client] at my local LLM?"</em>
-      is the same four values.
-    </p>
-
-    <div class="kv">
-      <div><span>Base URL</span><code>http://127.0.0.1:1473/v1</code></div>
-      <div><span>API key</span><code>any non-empty string</code></div>
-      <div><span>Model</span><code>myownllm-text · myownllm-code · myownllm-vision</code></div>
-      <div><span>Auth header</span><code>Authorization: Bearer &lt;key&gt;</code></div>
-    </div>
-
-    <ul class="logo-list" aria-label="Compatible clients">
-      <li>Cursor</li>
-      <li>Continue</li>
-      <li>Aider</li>
-      <li>Cline</li>
-      <li>Zed</li>
-      <li>Open WebUI</li>
-      <li>LibreChat</li>
-      <li>opencode</li>
-      <li>OpenClaw</li>
-      <li>OpenClaude</li>
-      <li>and anything else that speaks OpenAI</li>
-    </ul>
-  </div>
-</section>
-
-<section class="section section-alt" id="pi">
-  <div class="container two-col">
-    <div>
-      <h2>Runs on a Raspberry Pi</h2>
-      <p>
-        Native <code>linux-aarch64</code> builds. The detector reads the
-        board name and walks a CPU-friendly tier ladder — a 2&nbsp;GB Pi 4
-        lands on <code>llama3.2:1b</code>, a 16&nbsp;GB Pi 5 reaches
-        <code>gemma4:e4b</code>. Gemma 4's edge variants are agentic,
-        multimodal, Apache-2.0, and run completely offline.
-      </p>
-    </div>
-    <div>
-      <table class="tier">
-        <thead><tr><th>Board</th><th>Default text model</th></tr></thead>
-        <tbody>
-          <tr><td>Pi 4 / Pi 5 — 2 GB</td><td><code>llama3.2:1b</code></td></tr>
-          <tr><td>Pi 4 / Pi 5 — 4 GB</td><td><code>llama3.2:3b</code></td></tr>
-          <tr><td>Pi 4 / Pi 5 — 8 GB</td><td><code>gemma4:e2b</code></td></tr>
-          <tr><td>Pi 5 — 16 GB</td><td><code>gemma4:e4b</code></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="cli">
-  <div class="container">
-    <h2>CLI</h2>
-    <p class="section-lede">
-      Every subcommand has a <code>--json</code> twin. Wire it into whatever you already have.
-    </p>
-<pre class="cli-pre"><code><span class="prompt">$</span> myownllm                 <span class="c-dim"># GUI</span>
-<span class="prompt">$</span> myownllm serve           <span class="c-dim"># API server (127.0.0.1:1473)</span>
-<span class="prompt">$</span> myownllm run             <span class="c-dim"># terminal chat</span>
-<span class="prompt">$</span> myownllm status          <span class="c-dim"># provider, hardware, daemon, update</span>
-<span class="prompt">$</span> myownllm models          <span class="c-dim"># what's pulled, what could be</span>
-<span class="prompt">$</span> myownllm families        <span class="c-dim"># list / switch family</span>
-<span class="prompt">$</span> myownllm providers       <span class="c-dim"># list / switch provider</span>
-<span class="prompt">$</span> myownllm update          <span class="c-dim"># check / apply / configure self-update</span></code></pre>
-  </div>
-</section>
-
-<section class="section cta">
-  <div class="container">
-    <h2>Take it for a spin</h2>
-    <p>It's a single binary. It auto-installs Ollama. It picks the model. It serves the JSON. You point your editor at <code>127.0.0.1:1473</code>.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="https://github.com/mrjeeves/MyOwnLLM">View on GitHub</a>
-      <a class="btn btn-ghost" href="https://github.com/mrjeeves/MyOwnLLM/blob/main/DOCS.md">Read the docs</a>
-      <a class="btn btn-ghost" href="https://github.com/mrjeeves/MyOwnLLM/releases">Download a release</a>
-    </div>
+    <h2>Bring your AI home.</h2>
+    <p>It's free, it's open, and it's a single click to install.</p>
+    <a class="btn btn-primary btn-lg" href="/download.html">
+      <span class="btn-arrow" aria-hidden="true">↓</span>
+      Download MyOwnLLM
+    </a>
   </div>
 </section>
 
@@ -327,13 +302,14 @@
 <footer class="footer">
   <div class="container footer-row">
     <div>
-      <p><strong>MyOwnLLM</strong> — MIT licensed. Your machine, your models, your manifest.</p>
+      <p><strong>MyOwnLLM</strong> — Your AI, on your machine. MIT licensed.</p>
     </div>
     <nav aria-label="Footer">
+      <a href="/download.html">Download</a>
+      <a href="#faq">FAQ</a>
       <a href="https://github.com/mrjeeves/MyOwnLLM">GitHub</a>
       <a href="https://github.com/mrjeeves/MyOwnLLM/blob/main/DOCS.md">Docs</a>
-      <a href="https://github.com/mrjeeves/MyOwnLLM/blob/main/ARCHITECTURE.md">Architecture</a>
-      <a href="https://github.com/mrjeeves/MyOwnLLM/issues">Issues</a>
+      <a href="https://github.com/mrjeeves/MyOwnLLM/issues">Help</a>
     </nav>
   </div>
 </footer>
