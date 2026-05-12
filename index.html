@@ -208,17 +208,30 @@
       </a>
     </div>
 
-    <article class="dl-platform dl-oneliner-home">
+    <article class="dl-platform dl-oneliner dl-oneliner-home">
       <header>
         <h3>Or install from the command line</h3>
         <p>Prefer a terminal? These commands download and run the official installer for you. Both scripts are hosted right here on this site.</p>
       </header>
-      <div class="oneliner">
-        <p class="oneliner-label">macOS / Linux / Raspberry Pi</p>
+      <div class="oneliner-tabs" role="tablist" aria-label="Install command">
+        <button class="oneliner-tab" role="tab" type="button" data-os="mac" data-target="sh" aria-selected="false" tabindex="-1">macOS</button>
+        <button class="oneliner-tab" role="tab" type="button" data-os="windows" data-target="ps" aria-selected="false" tabindex="-1">Windows</button>
+        <button class="oneliner-tab" role="tab" type="button" data-os="linux" data-target="sh" aria-selected="false" tabindex="-1">Linux</button>
+        <button class="oneliner-tab" role="tab" type="button" data-os="pi" data-target="sh" aria-selected="false" tabindex="-1">Raspberry Pi</button>
+      </div>
+      <div class="oneliner-panel" data-panel="sh" role="tabpanel" hidden>
+        <div class="oneliner-code">
 <pre><code>curl -fsSL https://myownllm.net/install.sh | sh</code></pre>
-        <p class="oneliner-label">Windows (PowerShell)</p>
+          <button class="copy-btn" type="button" aria-label="Copy install command">Copy</button>
+        </div>
+        <p class="dl-tip">Add <code>-s -- --run</code> to launch the app as soon as it's installed.</p>
+      </div>
+      <div class="oneliner-panel" data-panel="ps" role="tabpanel" hidden>
+        <div class="oneliner-code">
 <pre><code>irm https://myownllm.net/install.ps1 | iex</code></pre>
-        <p class="dl-tip">Add <code>-s -- --run</code> (sh) or <code>-Run</code> (PowerShell) to launch the app as soon as it's installed.</p>
+          <button class="copy-btn" type="button" aria-label="Copy install command">Copy</button>
+        </div>
+        <p class="dl-tip">Add <code>-Run</code> to launch the app as soon as it's installed.</p>
       </div>
     </article>
 
