@@ -167,7 +167,88 @@
     box.hidden = false;
   }
 
+  // ---------- one-line install: tabs + copy ----------
+  function wireOnelinerTabs() {
+    const cards = document.querySelectorAll('.dl-oneliner');
+    if (!cards.length) return;
+    const plat = detectPlatform();
+    const supported = ['mac', 'windows', 'linux', 'pi'];
+    const defaultOs = supported.includes(plat.os) ? plat.os : 'mac';
+
+    cards.forEach((card) => {
+      const tabs = card.querySelectorAll('.oneliner-tab');
+      const panels = card.querySelectorAll('.oneliner-panel');
+
+      function activate(os) {
+        let targetPanel = null;
+        tabs.forEach((tab) => {
+          const active = tab.getAttribute('data-os') === os;
+          tab.classList.toggle('is-active', active);
+          tab.setAttribute('aria-selected', active ? 'true' : 'false');
+          tab.setAttribute('tabindex', active ? '0' : '-1');
+          if (active) targetPanel = tab.getAttribute('data-target');
+        });
+        panels.forEach((panel) => {
+          const active = panel.getAttribute('data-panel') === targetPanel;
+          panel.classList.toggle('is-active', active);
+          if (active) panel.removeAttribute('hidden');
+          else panel.setAttribute('hidden', '');
+        });
+      }
+
+      tabs.forEach((tab, idx) => {
+        tab.addEventListener('click', () => activate(tab.getAttribute('data-os')));
+        tab.addEventListener('keydown', (e) => {
+          if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+          e.preventDefault();
+          const dir = e.key === 'ArrowRight' ? 1 : -1;
+          const next = tabs[(idx + dir + tabs.length) % tabs.length];
+          activate(next.getAttribute('data-os'));
+          next.focus();
+        });
+      });
+
+      activate(defaultOs);
+    });
+  }
+
+  function wireCopyButtons() {
+    document.querySelectorAll('.copy-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const code = btn.parentElement && btn.parentElement.querySelector('code');
+        if (!code) return;
+        const text = (code.textContent || '').trim();
+        let ok = false;
+        try {
+          await navigator.clipboard.writeText(text);
+          ok = true;
+        } catch {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          try { ok = document.execCommand('copy'); } catch {}
+          ta.remove();
+        }
+        const label = btn.dataset.label || btn.textContent;
+        btn.dataset.label = label;
+        btn.textContent = ok ? 'Copied!' : 'Press ⌘C';
+        btn.classList.add('is-copied');
+        clearTimeout(btn._copyT);
+        btn._copyT = setTimeout(() => {
+          btn.textContent = label;
+          btn.classList.remove('is-copied');
+        }, 1600);
+      });
+    });
+  }
+
   // ---------- boot ----------
+  wireOnelinerTabs();
+  wireCopyButtons();
   fetchLatest().then((release) => {
     wireButtons(release);
     showReleaseInfo(release);

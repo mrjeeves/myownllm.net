@@ -523,6 +523,73 @@ pre code {
 }
 .oneliner pre { margin: 0; }
 
+.oneliner-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+.oneliner-tab {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--text-dim);
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.55rem 0.95rem;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  margin-bottom: -1px;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+.oneliner-tab:hover { color: var(--text); }
+.oneliner-tab:focus-visible {
+  outline: 2px solid var(--accent-fade);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.oneliner-tab.is-active {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+.oneliner-panel { margin: 0; }
+.oneliner-code { position: relative; }
+.oneliner-code pre {
+  margin: 0;
+  padding-right: 5rem;
+}
+.copy-btn {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  appearance: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  font: inherit;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+.copy-btn:hover {
+  color: var(--text);
+  border-color: var(--accent-fade);
+  background: var(--bg-card-hi);
+}
+.copy-btn:focus-visible {
+  outline: 2px solid var(--accent-fade);
+  outline-offset: 2px;
+}
+.copy-btn.is-copied {
+  color: var(--accent);
+  border-color: var(--accent-fade);
+  background: var(--accent-soft);
+}
+
 /* ----- FAQ ----- */
 
 .faq details {
