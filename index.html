@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>MyOwnLLM — Your own AI. On your own devices. Forever.</title>
-<meta name="description" content="A free, private AI that lives on your Mac, PC, or Raspberry Pi. No subscription. No account. No cloud. Set it once and forget about it." />
+<title>MyOwnLLM — An AI that runs on every device you own</title>
+<meta name="description" content="An AI that runs on every device you own. Add hardware and it gets bigger. Tell it what changed and it sets itself up. Free, open source, yours." />
 <meta name="theme-color" content="#0b0d10" />
 
-<meta property="og:title" content="MyOwnLLM — Your own AI. Forever." />
-<meta property="og:description" content="A free, private AI that lives on your Mac, PC, or Raspberry Pi. No subscription. No account. No cloud." />
+<meta property="og:title" content="MyOwnLLM — An AI that runs on every device you own" />
+<meta property="og:description" content="One AI across your devices. Every machine you add makes it stronger. Tell it what changed and it sets itself up." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://myownllm.net" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="MyOwnLLM" />
-<meta name="twitter:description" content="A free, private AI that lives on your devices. Set it once and forget about it." />
+<meta name="twitter:description" content="One AI across your devices. Every machine you add makes it stronger." />
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="stylesheet" href="/styles.css" />
@@ -33,7 +33,7 @@
     <nav class="nav-links" aria-label="Primary">
       <a href="/download.html">Download</a>
       <a href="#what-it-does">What it does</a>
-      <a href="#faq">FAQ</a>
+      <a href="/faq.html">FAQ</a>
       <a href="#developers">For developers</a>
       <a href="https://github.com/mrjeeves/MyOwnLLM" class="nav-cta">GitHub</a>
     </nav>
@@ -45,13 +45,11 @@
 <section class="hero">
   <div class="container">
     <p class="eyebrow">Free · Open source · Yours forever</p>
-    <h1>Your own AI.<br/>On your own devices.<br/><span class="accent">Forever.</span></h1>
+    <h1>An AI that runs on<br/><span class="accent">every device you own.</span></h1>
     <p class="lede">
-      MyOwnLLM is a friendly, private AI that lives on your computer.
-      Install it once and it runs on your Mac, your PC, your Raspberry Pi,
-      even the laptop in the cupboard — picking the right model for each
-      machine and keeping itself up to date. No subscription. No account.
-      No cloud.
+      Phone, laptop, workstation, Pi — they find each other and share the
+      work. Add hardware and your AI grows. Tell it what changed; it sets
+      itself up.
     </p>
     <div class="hero-cta">
       <a class="btn btn-primary btn-lg" href="/download.html" id="hero-download">
@@ -71,31 +69,24 @@
     <div class="why-grid">
       <article class="why-card">
         <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M12 2l9 4v6c0 5-3.5 8.5-9 10-5.5-1.5-9-5-9-10V6l9-4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><rect x="2" y="3" width="7" height="5" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="15" y="3" width="7" height="5" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="8.5" y="16" width="7" height="5" rx="1" stroke="currentColor" stroke-width="1.8"/><path d="M5.5 8L12 16M18.5 8L12 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
         </div>
-        <h3>Yours forever</h3>
-        <p>MIT-licensed, open source, no company in the loop. Nothing to cancel, nothing to expire, no terms that can change overnight.</p>
+        <h3>All your devices, one AI</h3>
+        <p>Devices that share a Network ID find each other on a network you control, share the inference, and pass the conversation between them. No broker, no account, no API key.</p>
       </article>
       <article class="why-card">
         <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><rect x="4" y="10" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 10V7a4 4 0 1 1 8 0v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><rect x="3" y="14" width="4" height="7" rx="0.6" stroke="currentColor" stroke-width="1.8"/><rect x="10" y="9" width="4" height="12" rx="0.6" stroke="currentColor" stroke-width="1.8"/><rect x="17" y="4" width="4" height="17" rx="0.6" stroke="currentColor" stroke-width="1.8"/></svg>
         </div>
-        <h3>Private by default</h3>
-        <p>Your chats, your transcripts, your files — they stay on your machine. There's no server to leak, no provider to spy on, no API key to renew.</p>
+        <h3>Every device makes it stronger</h3>
+        <p>A 4090 in the den answers questions you asked from the Pi in the kitchen. A laptop's mic, a workstation's brain. Each thing you plug in is a +1.</p>
       </article>
       <article class="why-card">
         <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M5 12a7 7 0 0 1 14 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M2 9l3 3-3 3M22 9l-3 3 3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 16v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M11 3L12.6 9L18.6 10.6L12.6 12.2L11 18.2L9.4 12.2L3.4 10.6L9.4 9L11 3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M18 15L18.7 17.3L21 18L18.7 18.7L18 21L17.3 18.7L15 18L17.3 17.3L18 15Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
         </div>
-        <h3>Works offline</h3>
-        <p>Plane, train, cabin, bad Wi-Fi. After the first download, the whole thing runs without internet. If your machine turns on, your AI works.</p>
-      </article>
-      <article class="why-card">
-        <div class="why-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </div>
-        <h3>Set it &amp; forget it</h3>
-        <p>It picks the right model for each device, updates itself in the background, and survives crashes, force-quits, and bad Wi-Fi without complaint.</p>
+        <h3>It's its own IT</h3>
+        <p>Ask the AI to add a device, switch networks, approve a peer, read a log, run a script. It does — with your permission for anything that touches your shell or files. You don't manage a fleet, you have a conversation.</p>
       </article>
     </div>
   </div>
@@ -105,65 +96,31 @@
   <div class="container">
     <h2>What you can actually do with it</h2>
     <p class="section-lede">
-      Everyday things you'd otherwise pay a cloud service for — except
-      your conversation never leaves the room.
+      Cross-device chat. On-device transcription. An AI that's also your IT.
     </p>
 
     <div class="feature-grid">
       <article class="feature">
-        <h3>Chat with your own AI</h3>
-        <p>Like ChatGPT, on your own computer. Ask questions, draft emails, summarise pages, brainstorm ideas. The app remembers your conversations and organises them in folders.</p>
+        <h3>Ask anywhere. Answer from anywhere.</h3>
+        <p>Drafts, regex, the thing you'd rather not paste into ChatGPT. Start a chat on your phone; finish it at the desk; the gaming PC in the den does the thinking.</p>
       </article>
       <article class="feature">
-        <h3>Transcribe meetings live</h3>
-        <p>Open the app, hit record. It listens to the mic and writes everything down in real time — entirely offline. Pause and resume freely; nothing gets lost if you do.</p>
+        <h3>Tell it to fix itself</h3>
+        <p><em>"Add my new Pi."</em> <em>"Move this chat to the workstation."</em> Just ask. The AI walks you through it and runs the commands — asking permission before anything touches your shell or files.</p>
       </article>
       <article class="feature">
-        <h3>Turn talks into bullet points</h3>
-        <p>Talking Points keeps summarising a live transcript into a tidy bullet list while the meeting is still happening. Walk away with notes that already make sense.</p>
+        <h3>Transcribe meetings, locally</h3>
+        <p>Hit record. Real-time transcript with speakers labelled — and the labels stay stable for the whole meeting, not just a window. Never uploaded.</p>
       </article>
       <article class="feature">
-        <h3>Show it pictures</h3>
-        <p>Drag in a photo or a screenshot. Ask it to read the receipt, describe the chart, label the parts, translate the sign. No upload, no service, no waiting.</p>
-      </article>
-      <article class="feature">
-        <h3>Help with code &amp; writing</h3>
-        <p>Stuck on a tricky paragraph or a regex? It can read your draft, suggest fixes, and explain why — without sending your work to anyone else's server.</p>
-      </article>
-      <article class="feature">
-        <h3>Run it on every device</h3>
-        <p>The same app on your Mac, your work laptop, the kids' PC, the Raspberry Pi in the cupboard. Open the GUI from your phone over your home Wi-Fi.</p>
+        <h3>Live notes while you talk</h3>
+        <p>Talking Points keeps a tidy bullet summary growing alongside the transcript. Walk away with notes that already make sense.</p>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section" id="how">
-  <div class="container">
-    <h2>How it works</h2>
-    <p class="section-lede">Three steps. No accounts, no terminal commands required.</p>
-
-    <ol class="steps">
-      <li>
-        <div class="step-num">1</div>
-        <h3>Download &amp; open</h3>
-        <p>One click on the download button below. Run the installer. Open MyOwnLLM like any other app on your computer.</p>
-      </li>
-      <li>
-        <div class="step-num">2</div>
-        <h3>It picks the right brain for your machine</h3>
-        <p>A small, nimble model on a Pi or a basic laptop. A bigger, smarter one on a workstation. You don't have to choose — it figures it out and downloads it once.</p>
-      </li>
-      <li>
-        <div class="step-num">3</div>
-        <h3>Chat. That's it.</h3>
-        <p>Type a message. Drop in a photo. Hit record on a meeting. From here on, MyOwnLLM updates itself in the background — you never have to come back to "manage" it.</p>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<section class="section section-alt" id="download-cta">
+<section class="section" id="download-cta">
   <div class="container">
     <h2>Get it on every device</h2>
     <p class="section-lede">One free app for every machine you own. The big buttons go to the official installer for your platform.</p>
@@ -237,75 +194,30 @@
   </div>
 </section>
 
-<section class="section faq" id="faq">
-  <div class="container">
-    <h2>Things people ask</h2>
-
-    <details>
-      <summary>Is this really free?</summary>
-      <p>Yes. MyOwnLLM is open source under the MIT licence — that means you can use it forever, even commercially, even offline, even after this project is no longer maintained. There's no premium tier, no account, no telemetry by default.</p>
-    </details>
-
-    <details>
-      <summary>Does it work without internet?</summary>
-      <p>Yes — after the first download. The first time you run it, MyOwnLLM downloads the AI model itself (typically 3–15 GB). After that it runs entirely offline. You only need internet again if you want to update the app or switch to a different model.</p>
-    </details>
-
-    <details>
-      <summary>Do I need a fancy graphics card?</summary>
-      <p>No. MyOwnLLM works on a stock Mac, a regular Windows laptop, even a Raspberry Pi 4 with 2 GB of RAM. It picks a model your machine can actually run. If you do have a GPU it'll happily use it to go faster.</p>
-    </details>
-
-    <details>
-      <summary>Will it slow my computer down?</summary>
-      <p>Only when you're actively chatting — and even then it's bounded by what your computer can comfortably handle, because the model is chosen to fit. Idle, MyOwnLLM uses no meaningful power.</p>
-    </details>
-
-    <details>
-      <summary>How much disk space does it need?</summary>
-      <p>The app itself is small (under 50 MB). The model it downloads on first run is the big bit — typically 3 GB on a Pi or small laptop, up to about 15 GB on a powerful machine. Models you stop using are cleaned up automatically.</p>
-    </details>
-
-    <details>
-      <summary>How private is it, really?</summary>
-      <p>Everything runs on your device. Your conversations and transcripts never leave it. The only thing MyOwnLLM does over the network is check GitHub for updates — and even that you can turn off.</p>
-    </details>
-
-    <details>
-      <summary>Can it do what ChatGPT does?</summary>
-      <p>For everyday things — yes. Drafting emails, summarising articles, answering questions, looking at photos, helping with writing or code. It's not as smart as the very largest cloud models, but it's a lot smarter than nothing, and it's yours. As local models get better, MyOwnLLM updates itself to use them.</p>
-    </details>
-
-    <details>
-      <summary>What about my family's older laptop / the Pi in the cupboard?</summary>
-      <p>That's the point. Install it everywhere — each machine gets a model that fits it. The Pi will run a small, nimble one; the gaming PC will run a big clever one. The app is the same on all of them.</p>
-    </details>
-  </div>
-</section>
-
 <section class="section section-alt" id="developers">
   <div class="container dev-row">
     <div>
       <p class="dev-eyebrow">For developers</p>
-      <h2>OpenAI-compatible. Drop-in. Local.</h2>
+      <h2>OpenAI-compatible. Agent-capable. Mesh-routed.</h2>
       <p>
-        MyOwnLLM also exposes an OpenAI-compatible HTTP API on
-        <code>127.0.0.1:1473</code> (plus Ollama and Anthropic wire
-        formats), so Cursor, Continue, Aider, Cline, Zed, Open WebUI,
-        LibreChat, opencode, and anything else that speaks those formats
-        works as a drop-in. Manifest-driven model selection, hardware-tier
-        resolution, self-updating binary, fully scriptable CLI.
+        <code>127.0.0.1:1473</code> speaks OpenAI, Ollama, and Anthropic.
+        The chat agent ships with tools for your mesh, filesystem, and
+        shell — per-device permission gates, persisted across reloads.
+        <strong>Tools execute on the caller's box even when inference is
+        on a remote peer</strong>, so your Pi can borrow the workstation's
+        model and still configure the Pi. Cursor, Continue, Aider, Cline,
+        Zed, Open WebUI all just work.
       </p>
       <p>
-        <a class="btn btn-ghost" href="https://github.com/mrjeeves/MyOwnLLM/blob/main/DOCS.md">Read the developer docs →</a>
-        <a class="btn btn-ghost" href="https://github.com/mrjeeves/MyOwnLLM">View on GitHub</a>
+        <a class="btn btn-ghost" href="https://github.com/mrjeeves/MyOwnLLM/blob/main/DOCS.md">Developer docs →</a>
+        <a class="btn btn-ghost" href="https://github.com/mrjeeves/MyOwnLLM">GitHub</a>
       </p>
     </div>
     <pre class="dev-snippet"><code><span class="c-dim"># point any OpenAI client at your machine</span>
 curl http://127.0.0.1:1473/v1/chat/completions \
   -H <span class="c-str">"Authorization: Bearer myownllm"</span> \
   -d <span class="c-str">'{
-    "model": "myownllm-text",
+    "model": "myownllm",
     "messages": [{"role":"user","content":"hi"}]
   }'</span></code></pre>
   </div>
@@ -313,8 +225,8 @@ curl http://127.0.0.1:1473/v1/chat/completions \
 
 <section class="cta">
   <div class="container">
-    <h2>Bring your AI home.</h2>
-    <p>It's free, it's open, and it's a single click to install.</p>
+    <h2>More <em>is</em> better.</h2>
+    <p>The more devices you bring, the bigger your AI gets. Free, open, one click.</p>
     <a class="btn btn-primary btn-lg" href="/download.html">
       <span class="btn-arrow" aria-hidden="true">↓</span>
       Download MyOwnLLM
@@ -331,7 +243,7 @@ curl http://127.0.0.1:1473/v1/chat/completions \
     </div>
     <nav aria-label="Footer">
       <a href="/download.html">Download</a>
-      <a href="#faq">FAQ</a>
+      <a href="/faq.html">FAQ</a>
       <a href="https://github.com/mrjeeves/MyOwnLLM">GitHub</a>
       <a href="https://github.com/mrjeeves/MyOwnLLM/blob/main/DOCS.md">Docs</a>
       <a href="https://github.com/mrjeeves/MyOwnLLM/issues">Help</a>

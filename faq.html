@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MyOwnLLM — FAQ</title>
+<meta name="description" content="Frequently asked questions about MyOwnLLM — pricing, multiple devices, hardware, privacy, the agent, and more." />
+<meta name="theme-color" content="#0b0d10" />
+
+<meta property="og:title" content="MyOwnLLM — FAQ" />
+<meta property="og:description" content="Answers to common questions about MyOwnLLM." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://myownllm.net/faq.html" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="MyOwnLLM — FAQ" />
+<meta name="twitter:description" content="Answers to common questions about MyOwnLLM." />
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+<header class="nav" role="banner">
+  <div class="container nav-row">
+    <a class="brand" href="/" aria-label="MyOwnLLM home">
+      <svg class="brand-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M8 10l2 2-2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 14h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-name">MyOwnLLM</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/download.html">Download</a>
+      <a href="/#what-it-does">What it does</a>
+      <a href="/faq.html" aria-current="page">FAQ</a>
+      <a href="/#developers">For developers</a>
+      <a href="https://github.com/mrjeeves/MyOwnLLM" class="nav-cta">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="section faq" id="faq">
+  <div class="container">
+    <h2>Things people ask</h2>
+
+    <details>
+      <summary>Is this really free?</summary>
+      <p>Yes. MyOwnLLM is open source under the MIT licence — that means you can use it forever, even commercially, even offline, even after this project is no longer maintained. There's no premium tier, no account, no telemetry by default.</p>
+    </details>
+
+    <details>
+      <summary>Do I need multiple devices?</summary>
+      <p>No. MyOwnLLM runs fine on a single computer — it picks a model your machine can handle and you're off. The multi-device part kicks in when you add a second one: each device joins the network, the AI can route inference to whichever has the right power, and the conversation follows you between them. Start with one. Add the rest when you feel like it.</p>
+    </details>
+
+    <details>
+      <summary>Does it work without internet?</summary>
+      <p>Yes — after the first download. The first time you run it, MyOwnLLM downloads the AI model itself (typically 3–15 GB). After that it runs entirely offline. You only need internet again if you want to update the app, switch to a different model, or find peers on a public Nostr relay (a local-network relay works too if you'd rather not touch the internet for that).</p>
+    </details>
+
+    <details>
+      <summary>Do I need a fancy graphics card?</summary>
+      <p>No. MyOwnLLM works on a stock Mac, a regular Windows laptop, even a Raspberry Pi 4 with 2 GB of RAM. It picks a model your machine can actually run. If you do have a GPU it'll happily use it to go faster — and if you have a beefy GPU in another room, your smaller devices can borrow it over the mesh.</p>
+    </details>
+
+    <details>
+      <summary>Will it slow my computer down?</summary>
+      <p>Only when you're actively chatting — and even then it's bounded by what your computer can comfortably handle, because the model is chosen to fit. Idle, MyOwnLLM uses no meaningful power.</p>
+    </details>
+
+    <details>
+      <summary>How much disk space does it need?</summary>
+      <p>The app itself is small (under 50 MB). The model it downloads on first run is the big bit — typically 3 GB on a Pi or small laptop, up to about 15 GB on a powerful machine. Models you stop using are cleaned up automatically.</p>
+    </details>
+
+    <details>
+      <summary>How private is it, really?</summary>
+      <p>Everything runs on your devices. Chats, transcripts, files — they never leave the machines you own. When devices on your network talk to each other, the connection is peer-to-peer (WebRTC) and mutually authenticated; the only thing a public Nostr relay sees is the encrypted handshake.</p>
+    </details>
+
+    <details>
+      <summary>What's the "agent" / "it's its own IT" thing?</summary>
+      <p>The chat doesn't just answer — it can do things. It has tools to manage your devices (add a Pi, switch networks, approve a peer), read files, write files, and run shell commands. Anything that touches your shell or writes to disk pops up a permission prompt: Deny, Allow once, Always for this specific command, or Always for the tool. Your choices are saved per device, so each machine has its own policy.</p>
+    </details>
+
+    <details>
+      <summary>Can it do what ChatGPT does?</summary>
+      <p>For everyday things — yes. Drafting emails, summarising articles, answering questions, looking at photos, helping with writing or code. It's not as smart as the very largest cloud models, but it's a lot smarter than nothing, and it's yours. As local models get better, MyOwnLLM updates itself to use them.</p>
+    </details>
+
+    <details>
+      <summary>What about my family's older laptop / the Pi in the cupboard?</summary>
+      <p>That's the point. Install it everywhere — each machine gets a model that fits it, and they join the same AI. The Pi runs a small nimble model; the gaming PC runs a big clever one; questions you ask on any device can be answered by whichever has the right power for the job.</p>
+    </details>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>More <em>is</em> better.</h2>
+    <p>The more devices you bring, the bigger your AI gets. Free, open, one click.</p>
+    <a class="btn btn-primary btn-lg" href="/download.html">
+      <span class="btn-arrow" aria-hidden="true">↓</span>
+      Download MyOwnLLM
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-row">
+    <div>
+      <p><strong>MyOwnLLM</strong> — An AI that runs on every device you own. MIT licensed.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="/download.html">Download</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="https://github.com/mrjeeves/MyOwnLLM">GitHub</a>
+      <a href="https://github.com/mrjeeves/MyOwnLLM/blob/main/DOCS.md">Docs</a>
+      <a href="https://github.com/mrjeeves/MyOwnLLM/issues">Help</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/main.js" defer></script>
+</body>
+</html>
